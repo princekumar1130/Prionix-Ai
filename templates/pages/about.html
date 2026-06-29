@@ -1,0 +1,272 @@
+
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+<style>
+
+.about-hero{
+    background: linear-gradient(135deg,#0f172a,#1e3a8a,#2563eb);
+    color:white;
+    padding:120px 0;
+    position:relative;
+    overflow:hidden;
+}
+
+.about-hero::before{
+    content:'';
+    position:absolute;
+    width:500px;
+    height:500px;
+    background:rgba(255,255,255,0.05);
+    border-radius:50%;
+    top:-200px;
+    right:-150px;
+}
+
+.gradient-text{
+    background:linear-gradient(90deg,#60a5fa,#22d3ee);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.about-card{
+    background:white;
+    border-radius:20px;
+    padding:35px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    transition:.4s;
+    height:100%;
+}
+
+.about-card:hover{
+    transform:translateY(-10px);
+}
+
+.stats{
+    background:#0f172a;
+    color:white;
+    padding:80px 0;
+}
+
+.stats h2{
+    font-size:3rem;
+    font-weight:700;
+}
+
+.mission-section{
+    padding:100px 0;
+}
+
+.contact-box{
+    background:linear-gradient(135deg,#2563eb,#06b6d4);
+    color:white;
+    padding:50px;
+    border-radius:25px;
+}
+
+.contact-box a{
+    color:white;
+    text-decoration:none;
+    font-weight:600;
+}
+
+</style>
+
+<!-- HERO -->
+<section class="about-hero">
+
+    <div class="container text-center">
+
+        <span class="badge bg-light text-dark px-3 py-2 mb-3">
+            About Prionix AI
+        </span>
+
+        <h1 class="display-3 fw-bold">
+            Building the Future with
+            <span class="gradient-text">
+                Artificial Intelligence
+            </span>
+        </h1>
+
+        <p class="lead mt-4 mx-auto" style="max-width:850px;">
+            Prionix AI is a next-generation technology startup focused on
+            Artificial Intelligence, Automation, Data Intelligence, and
+            Digital Transformation. We help businesses streamline operations,
+            improve decision-making, and unlock new opportunities through
+            innovative AI-powered solutions.
+        </p>
+
+    </div>
+
+</section>
+
+<!-- STORY -->
+<section class="container py-5">
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-6">
+
+            <h2 class="fw-bold mb-4">
+                Our Story
+            </h2>
+
+            <p class="text-muted">
+                Prionix AI was founded with a vision to make advanced
+                technology accessible to businesses of all sizes.
+                We believe Artificial Intelligence should not be limited
+                to large enterprises—it should empower startups,
+                entrepreneurs, and growing organizations as well.
+            </p>
+
+            <p class="text-muted">
+                Our mission is to create intelligent systems that automate
+                repetitive tasks, enhance productivity, and deliver
+                measurable business value.
+            </p>
+
+        </div>
+
+        <div class="col-lg-6">
+
+            <div class="about-card">
+
+                <h4>🚀 Our Vision</h4>
+
+                <p>
+                    To become a globally recognized AI innovation company
+                    helping organizations transform through intelligent
+                    technologies.
+                </p>
+
+                <hr>
+
+                <h4>🎯 Our Mission</h4>
+
+                <p>
+                    Deliver practical AI solutions that generate real
+                    business impact and long-term growth.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold">
+            What We Do
+        </h2>
+
+    </div>
+
+    <div class="row g-4">
+
+        <div class="col-md-4">
+            <div class="about-card">
+                <h3>🤖 AI Solutions</h3>
+                <p>
+                    Custom AI systems, chatbots, automation tools,
+                    recommendation engines and intelligent assistants.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="about-card">
+                <h3>📊 Data Intelligence</h3>
+                <p>
+                    Data analysis, visualization, business intelligence,
+                    predictive analytics and actionable insights.
+                </p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="about-card">
+                <h3>🌐 Web Development</h3>
+                <p>
+                    Modern websites, dashboards, SaaS platforms and
+                    scalable web applications for growing businesses.
+                </p>
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- STATS -->
+<section class="stats">
+
+    <div class="container">
+
+        <div class="row text-center">
+
+            <div class="col-md-3">
+                <h2>20+</h2>
+                <p>Projects</p>
+            </div>
+
+            <div class="col-md-3">
+                <h2>100%</h2>
+                <p>Custom Solutions</p>
+            </div>
+
+            <div class="col-md-3">
+                <h2>24/7</h2>
+                <p>Support</p>
+            </div>
+
+            <div class="col-md-3">
+                <h2>AI</h2>
+                <p>Driven Innovation</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- CONTACT -->
+<section class="mission-section">
+
+    <div class="container">
+
+        <div class="contact-box text-center">
+
+            <h2 class="fw-bold mb-3">
+                Let's Build the Future Together
+            </h2>
+
+            <p class="lead">
+                Whether you're a startup, business owner, or enterprise,
+                Prionix AI is ready to help transform your ideas into
+                intelligent digital solutions.
+            </p>
+
+            <h4 class="mt-4">
+                📧 prionixai@gmail.com
+            </h4>
+
+            <a href="mailto:prionixai@gmail.com">
+                Contact Us Today →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
+```

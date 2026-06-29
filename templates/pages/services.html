@@ -1,0 +1,654 @@
+
+{% extends "layout/base.html" %}
+
+{% block title %}
+Services | Prionix AI
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.services-page{
+    background:
+    radial-gradient(circle at top right,#cbd5e120,transparent 30%),
+    radial-gradient(circle at bottom left,#e2e8f020,transparent 30%),
+    linear-gradient(
+    135deg,
+    #ffffff,
+    #f8fafc,
+    #f1f5f9);
+
+    min-height:100vh;
+}
+
+/* HERO */
+
+.services-hero{
+    padding:100px 0;
+}
+
+.services-title{
+
+    font-size:4.2rem;
+    font-weight:800;
+    line-height:1.1;
+
+    background:linear-gradient(
+    90deg,
+    #0f172a,
+    #475569);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.services-subtitle{
+
+    max-width:850px;
+    margin:auto;
+
+    color:#64748b;
+    font-size:1.15rem;
+}
+
+/* SERVICE CARDS */
+
+.service-card{
+
+    background:white;
+
+    border-radius:30px;
+
+    padding:35px;
+
+    height:100%;
+
+    box-shadow:
+    0 15px 40px rgba(15,23,42,.05);
+
+    transition:.4s;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.service-card:hover{
+
+    transform:translateY(-12px);
+
+    box-shadow:
+    0 25px 60px rgba(15,23,42,.10);
+}
+
+.service-card::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:6px;
+
+    background:
+    linear-gradient(
+    90deg,
+    #0f172a,
+    #475569);
+}
+
+.service-icon{
+
+    width:75px;
+    height:75px;
+
+    border-radius:20px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #0f172a,
+    #334155);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-size:32px;
+
+    margin-bottom:20px;
+}
+
+.service-card h3{
+
+    font-weight:700;
+    margin-bottom:20px;
+    color:#0f172a;
+}
+
+.service-card ul{
+
+    padding-left:20px;
+}
+
+.service-card li{
+
+    margin-bottom:12px;
+    color:#475569;
+}
+
+/* SECTION TITLE */
+
+.section-heading{
+
+    font-size:2.5rem;
+    font-weight:700;
+
+    color:#0f172a;
+}
+
+/* WHY CHOOSE US */
+
+.why-box{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    text-align:center;
+
+    height:100%;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.04);
+
+    transition:.3s;
+}
+
+.why-box:hover{
+
+    transform:translateY(-8px);
+}
+
+.why-icon{
+
+    font-size:42px;
+
+    margin-bottom:15px;
+}
+
+/* STATS */
+
+.stats-card{
+
+    background:white;
+
+    border-radius:25px;
+
+    padding:35px;
+
+    text-align:center;
+
+    box-shadow:
+    0 10px 30px rgba(0,0,0,.04);
+
+    transition:.3s;
+}
+
+.stats-card:hover{
+
+    transform:translateY(-8px);
+}
+
+.stats-card h2{
+
+    font-size:3rem;
+
+    font-weight:800;
+
+    background:
+    linear-gradient(
+    90deg,
+    #0f172a,
+    #475569);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+/* CTA */
+
+.services-cta{
+
+    margin-top:80px;
+
+    background:
+    linear-gradient(
+    135deg,
+    #0f172a,
+    #334155);
+
+    border-radius:35px;
+
+    padding:80px 50px;
+
+    text-align:center;
+
+    color:white;
+}
+
+.services-cta h2{
+
+    font-size:2.8rem;
+    font-weight:700;
+}
+
+.services-btn{
+
+    display:inline-block;
+
+    margin-top:20px;
+
+    background:white;
+
+    color:#0f172a;
+
+    text-decoration:none;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    font-weight:700;
+
+    transition:.3s;
+}
+
+.services-btn:hover{
+
+    color:#0f172a;
+
+    background:#f8fafc;
+
+    transform:translateY(-3px);
+}
+
+</style>
+
+<div class="services-page">
+
+<!-- HERO -->
+
+<section class="services-hero">
+
+<div class="container text-center">
+
+<span class="badge bg-light border px-3 py-2 mb-3 text-dark">
+🚀 Premium AI & Technology Solutions
+</span>
+
+<h1 class="services-title">
+Our Services
+</h1>
+
+<p class="services-subtitle mt-4">
+
+Prionix AI delivers cutting-edge Artificial Intelligence,
+Automation, Data Intelligence and Web Development solutions
+that help businesses innovate, scale and stay ahead in a
+rapidly evolving digital world.
+
+</p>
+
+</div>
+
+</section>
+
+<!-- SERVICES -->
+
+<section class="container pb-5">
+
+<div class="row g-4">
+
+<!-- AI -->
+
+<div class="col-lg-4">
+
+<div class="service-card">
+
+<div class="service-icon">
+🤖
+</div>
+
+<h3>AI Development</h3>
+
+<ul>
+<li>AI Chatbots</li>
+<li>AI Assistants</li>
+<li>RAG Systems</li>
+<li>Generative AI Applications</li>
+<li>Workflow Automation</li>
+<li>Custom AI Solutions</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- DATA -->
+
+<div class="col-lg-4">
+
+<div class="service-card">
+
+<div class="service-icon">
+📊
+</div>
+
+<h3>Data Intelligence</h3>
+
+<ul>
+<li>Data Cleaning</li>
+<li>Business Intelligence</li>
+<li>Data Analysis</li>
+<li>Data Visualization</li>
+<li>Predictive Analytics</li>
+<li>Custom Dashboards</li>
+</ul>
+
+</div>
+
+</div>
+
+<!-- WEB -->
+
+<div class="col-lg-4">
+
+<div class="service-card">
+
+<div class="service-icon">
+🌐
+</div>
+
+<h3>Web Development</h3>
+
+<ul>
+<li>Business Websites</li>
+<li>Startup Websites</li>
+<li>SaaS Platforms</li>
+<li>Admin Dashboards</li>
+<li>Portfolio Websites</li>
+<li>Custom Web Applications</li>
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+<!-- DEDICATED ENGINEERING SUPPORT -->
+
+<section class="container py-5">
+
+<div class="row align-items-center g-5">
+
+    <div class="col-lg-6">
+
+        <span class="badge bg-dark px-3 py-2 mb-3">
+            Our Flagship Service
+        </span>
+
+        <h2 class="section-heading mb-4">
+            Dedicated Engineering Support
+        </h2>
+
+        <p class="lead text-muted">
+
+            Prionix AI empowers businesses with on-demand engineering expertise.
+            Our experienced professionals integrate seamlessly with your existing
+            team, providing secure, confidential, and dependable support whenever
+            additional technical capacity is required.
+
+        </p>
+
+        <p class="text-muted">
+
+            Whether you're managing increased workloads, accelerating product
+            development, meeting tight delivery deadlines, or filling temporary
+            resource gaps, our engineers help you scale efficiently without the
+            overhead of permanent hiring. From AI-powered solutions and intelligent
+            automation to full-stack software development, we deliver
+            enterprise-grade quality with complete transparency and collaboration.
+
+        </p>
+
+        <div class="row mt-4">
+
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <li class="mb-3">✔ AI Engineers</li>
+                    <li class="mb-3">✔ Full-Stack Developers</li>
+                    <li class="mb-3">✔ Project-Based Teams</li>
+                    <li class="mb-3">✔ Overflow Work Support</li>
+                </ul>
+            </div>
+
+            <div class="col-md-6">
+                <ul class="list-unstyled">
+                    <li class="mb-3">✔ Confidential Collaboration</li>
+                    <li class="mb-3">✔ Fast Team Scaling</li>
+                    <li class="mb-3">✔ Flexible Engagement</li>
+                    <li class="mb-3">✔ Enterprise-Grade Delivery</li>
+                </ul>
+            </div>
+
+        </div>
+
+        <a href="/consultation" class="btn btn-dark btn-lg rounded-pill px-4 mt-3">
+            Discuss Your Requirements →
+        </a>
+
+    </div>
+
+    <div class="col-lg-6 text-center">
+
+        <img
+            src="{{ url_for('static', filename='images/dedicated-engineering.png') }}"
+            class="img-fluid"
+            alt="Dedicated Engineering Support">
+
+    </div>
+
+</div>
+
+</section>
+
+<!-- WHY CHOOSE US -->
+
+<section class="container py-5">
+
+<div class="text-center mb-5">
+
+<h2 class="section-heading">
+Why Choose Prionix AI?
+</h2>
+
+<p class="text-muted">
+Technology expertise combined with business-focused execution.
+</p>
+
+</div>
+
+<div class="row g-4">
+
+<div class="col-md-3">
+
+<div class="why-box">
+
+<div class="why-icon">⚡</div>
+
+<h5>Fast Delivery</h5>
+
+<p>
+Efficient development cycles and
+rapid project execution.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="why-box">
+
+<div class="why-icon">💡</div>
+
+<h5>Innovation</h5>
+
+<p>
+Modern AI solutions designed for
+real-world business impact.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="why-box">
+
+<div class="why-icon">📈</div>
+
+<h5>Growth Focused</h5>
+
+<p>
+Helping businesses improve efficiency
+and accelerate growth.
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="why-box">
+
+<div class="why-icon">🛠️</div>
+
+<h5>Support</h5>
+
+<p>
+Reliable maintenance and long-term
+technical assistance.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- STATS -->
+
+<section class="container py-5">
+
+<div class="row g-4">
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<h2>10+</h2>
+
+<p>Projects Delivered</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<h2>15+</h2>
+
+<p>Technologies Used</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<h2>100%</h2>
+
+<p>Commitment</p>
+
+</div>
+
+</div>
+
+<div class="col-md-3">
+
+<div class="stats-card">
+
+<h2>24/7</h2>
+
+<p>Support</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="container pb-5">
+
+<div class="services-cta">
+
+<h2>
+Ready to Transform Your Business?
+</h2>
+
+<p class="lead mt-3">
+
+Let's discuss your project and build
+an intelligent, scalable and future-ready solution together.
+
+</p>
+
+<a href="/consultation"
+class="services-btn">
+
+Get Free Consultation →
+
+</a>
+
+</div>
+
+</section>
+
+</div>
+
+{% endblock %}
+

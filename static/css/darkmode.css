@@ -1,0 +1,9 @@
+.dark-mode{
+    background:#0f172a;
+    color:white;
+}
+
+.dark-mode .card{
+    background:#1e293b;
+    color:white;
+}

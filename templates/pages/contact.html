@@ -1,0 +1,370 @@
+
+{% extends "layout/base.html" %}
+
+{% block title %}
+Contact Us | Prionix AI
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.contact-section{
+    min-height:100vh;
+    padding:100px 0;
+
+    background:
+    linear-gradient(
+        rgba(3,7,18,0.75),
+        rgba(3,7,18,0.80)
+    ),
+    url("{{ url_for('static', filename='images/contact-bg.jpg') }}");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+}
+.contact-title{
+    font-size:4rem;
+    font-weight:800;
+    line-height:1.1;
+    color:white;
+}
+
+.gradient-text{
+    background:linear-gradient(
+    90deg,
+    #2563eb,
+    #06b6d4);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.contact-subtitle{
+    color:rgba(255,255,255,0.85);
+    font-size:1.1rem;
+    margin-top:20px;
+}
+
+.info-card{
+    background:rgba(255,255,255,0.02);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:30px;
+    padding:40px;
+    height:100%;
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.2);
+}
+
+.info-item{
+    display:flex;
+    align-items:center;
+    margin-bottom:25px;
+}
+
+.info-icon{
+    width:55px;
+    height:55px;
+    border-radius:15px;
+    background:linear-gradient(
+    135deg,
+    #2563eb,
+    #06b6d4);
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    color:white;
+    font-size:22px;
+    margin-right:15px;
+}
+
+.form-card{
+    background:rgba(255,255,255,0.02);
+    backdrop-filter:blur(20px);
+    -webkit-backdrop-filter:blur(20px);
+
+    border:1px solid rgba(255,255,255,0.15);
+
+    border-radius:30px;
+    padding:40px;
+
+    box-shadow:
+    0 8px 32px rgba(0,0,0,0.2);
+}
+
+.form-control{
+    background:rgba(255,255,255,0.12);
+    border:1px solid rgba(255,255,255,0.15);
+    color:#ffffff;
+
+    border-radius:15px;
+    padding:15px 20px;
+    margin-bottom:20px;
+}
+
+.form-control::placeholder{
+    color:rgba(255,255,255,0.65);
+}
+
+
+
+.form-control::placeholder{
+    color:rgba(255,255,255,0.6);
+}
+.form-control:focus{
+    background:rgba(255,255,255,0.15) !important;
+    color:#ffffff !important;
+
+    border:1px solid #38BDF8 !important;
+
+    box-shadow:
+    0 0 0 3px rgba(56,189,248,0.20);
+
+    outline:none;
+}
+input.form-control,
+textarea.form-control{
+    color:#ffffff !important;
+    caret-color:#38BDF8;
+    -webkit-text-fill-color:#ffffff !important;
+}
+
+
+
+.send-btn{
+    width:100%;
+    border:none;
+    border-radius:15px;
+    padding:15px;
+    font-size:1rem;
+    font-weight:600;
+
+    color:white;
+
+    background:linear-gradient(
+    135deg,
+    #2563eb,
+    #06b6d4);
+
+    transition:.3s;
+}
+
+.send-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 35px rgba(37,99,235,.25);
+}
+
+.stat-box{
+    margin-top:40px;
+    display:flex;
+    justify-content:space-between;
+}
+
+.stat{
+    text-align:center;
+}
+
+.stat h3{
+    color:#38BDF8;
+    font-weight:800;
+}
+
+.stat p{
+    color:white;
+}
+
+.badge-ai{
+    display:inline-block;
+    background:#dbeafe;
+    color:#2563eb;
+    padding:8px 15px;
+    border-radius:30px;
+    margin-bottom:20px;
+    font-weight:600;
+}
+
+</style>
+
+<section class="contact-section">
+
+<div class="container">
+
+<div class="row align-items-center g-5">
+
+<!-- LEFT SIDE -->
+
+<div class="col-lg-5">
+
+<div class="badge-ai">
+🚀 Let's Build Something Amazing
+</div>
+
+<h1 class="contact-title">
+Get in <span class="gradient-text">Touch</span>
+</h1>
+
+<p class="contact-subtitle">
+Ready to transform your business with AI,
+automation and modern technology solutions?
+
+Let's discuss your vision and build something
+extraordinary together.
+</p>
+
+<div class="info-card mt-4">
+
+<div class="info-item">
+<div class="info-icon">📧</div>
+<div>
+<h6>Email</h6>
+<p class="mb-0">prionixai@gmail.com</p>
+</div>
+</div>
+
+<div class="info-item">
+<div class="info-icon">🤖</div>
+<div>
+<h6>Services</h6>
+<p class="mb-0">
+AI Solutions, Automation, Data Intelligence
+</p>
+</div>
+</div>
+<div class="info-item">
+
+    <div class="info-icon">
+        <a href="https://www.linkedin.com/company/prionix-ai/?viewAsMember=true"
+           target="_blank"
+           style="color: inherit; text-decoration: none;"
+           aria-label="Prionix AI LinkedIn">
+            <i class="fab fa-linkedin-in"></i>
+        </a>
+    </div>
+
+    <div>
+        <h6>LinkedIn</h6>
+        <p class="mb-0">
+    <a href="https://www.linkedin.com/company/prionix-ai/?viewAsMember=true"
+       target="_blank"
+       style="text-decoration:none;color:inherit;">
+        linkedin.com/company/prionix-ai
+    </a>
+</p>
+    </div>
+
+</div>
+
+<div class="info-item">
+<div class="info-icon">🌐</div>
+<div>
+<h6>Website Development</h6>
+<p class="mb-0">
+Custom Websites & Web Applications
+</p>
+</div>
+</div>
+
+<div class="stat-box">
+
+<div class="stat">
+<h3>20+</h3>
+<p>Projects</p>
+</div>
+
+<div class="stat">
+<h3>24/7</h3>
+<p>Support</p>
+</div>
+
+<div class="stat">
+<h3>100%</h3>
+<p>Custom</p>
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RIGHT SIDE -->
+
+<div class="col-lg-7">
+
+<div class="form-card">
+
+<h3 class="mb-4">
+Send Us a Message
+</h3>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        {% for category, message in messages %}
+
+        <div class="alert alert-success">
+            {{ message }}
+        </div>
+
+        {% endfor %}
+    {% endif %}
+{% endwith %}
+
+<form method="POST">
+
+<input
+type="text"
+name="name"
+class="form-control"
+placeholder="Your Name"
+required>
+
+<input
+type="email"
+name="email"
+class="form-control"
+placeholder="Your Email"
+required>
+
+<input
+type="text"
+name="phone"
+class="form-control"
+placeholder="Phone Number">
+
+<textarea
+name="message"
+class="form-control"
+rows="6"
+placeholder="Tell us about your project..."
+required></textarea>
+
+<button
+type="submit"
+class="send-btn">
+
+Send Message →
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}
+

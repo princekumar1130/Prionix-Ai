@@ -1,0 +1,411 @@
+
+{% extends "layout/base.html" %}
+
+{% block content %}
+
+<style>
+
+body{
+    background:#050816;
+}
+
+/* HERO */
+
+.faq-hero{
+    padding:100px 0 80px;
+    background:
+    radial-gradient(circle at top right,#2563eb30,transparent 35%),
+    radial-gradient(circle at bottom left,#06b6d430,transparent 35%),
+    #050816;
+}
+
+.gradient-text{
+    background:linear-gradient(
+    90deg,
+    #60a5fa,
+    #22d3ee);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.faq-title{
+    font-size:4rem;
+    font-weight:800;
+    color:white;
+}
+
+.faq-subtitle{
+    color:#94a3b8;
+    max-width:700px;
+    margin:auto;
+    font-size:1.1rem;
+}
+
+/* FAQ BOX */
+
+.faq-box{
+    max-width:950px;
+    margin:auto;
+}
+
+.accordion-item{
+    background:rgba(255,255,255,.04) !important;
+    border:1px solid rgba(255,255,255,.08) !important;
+    border-radius:18px !important;
+    margin-bottom:20px;
+    overflow:hidden;
+    backdrop-filter:blur(20px);
+}
+
+.accordion-button{
+    background:transparent !important;
+    color:white !important;
+    font-weight:600;
+    padding:22px;
+    box-shadow:none !important;
+}
+
+.accordion-button:not(.collapsed){
+    background:rgba(37,99,235,.15) !important;
+    color:#60a5fa !important;
+}
+
+.accordion-button::after{
+    filter:invert(1);
+}
+
+.accordion-body{
+    color:#cbd5e1;
+    background:transparent;
+    line-height:1.8;
+}
+
+/* CTA */
+
+.faq-cta{
+    margin-top:90px;
+    background:linear-gradient(
+    135deg,
+    #2563eb,
+    #06b6d4);
+
+    border-radius:30px;
+    padding:60px;
+    text-align:center;
+}
+
+.faq-cta h2{
+    color:white;
+    font-weight:700;
+}
+
+.faq-cta p{
+    color:white;
+    opacity:.9;
+}
+
+.faq-btn{
+    display:inline-block;
+    margin-top:20px;
+    background:white;
+    color:#2563eb;
+    text-decoration:none;
+    padding:14px 35px;
+    border-radius:50px;
+    font-weight:600;
+}
+
+.faq-btn:hover{
+    color:#2563eb;
+}
+
+</style>
+
+<section class="faq-hero">
+
+<div class="container text-center">
+
+<span class="badge bg-primary px-3 py-2 mb-3">
+Help Center
+</span>
+
+<h1 class="faq-title">
+Frequently Asked <span class="gradient-text">Questions</span>
+</h1>
+
+<p class="faq-subtitle">
+Everything you need to know about Prionix AI,
+our services, pricing, development process and support.
+</p>
+
+</div>
+
+</section>
+
+<section class="container pb-5">
+
+<div class="faq-box">
+
+<div class="accordion" id="faqAccordion">
+
+<!-- FAQ 1 -->
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#faq1">
+
+How much do projects cost?
+
+</button>
+
+</h2>
+
+<div id="faq1"
+class="accordion-collapse collapse show"
+data-bs-parent="#faqAccordion">
+
+<div class="accordion-body">
+
+Pricing depends on project complexity,
+features, integrations and development effort.
+We provide customized quotes after understanding your requirements.
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FAQ 2 -->
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button collapsed"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#faq2">
+
+How long does development take?
+
+</button>
+
+</h2>
+
+<div id="faq2"
+class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+
+<div class="accordion-body">
+
+Most projects take between 1–8 weeks.
+Larger AI systems and enterprise applications
+may require additional development time.
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FAQ 3 -->
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button collapsed"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#faq3">
+
+Do you provide post-launch support?
+
+</button>
+
+</h2>
+
+<div id="faq3"
+class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+
+<div class="accordion-body">
+
+Yes. We provide maintenance, updates,
+bug fixes and ongoing technical support
+after project delivery.
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FAQ 4 -->
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button collapsed"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#faq4">
+
+Can you build custom AI chatbots?
+
+</button>
+
+</h2>
+
+<div id="faq4"
+class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+
+<div class="accordion-body">
+
+Absolutely. We develop AI chatbots,
+virtual assistants, RAG systems and
+customer support automation tailored
+to your business needs.
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FAQ 5 -->
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button collapsed"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#faq5">
+
+What technologies do you use?
+
+</button>
+
+</h2>
+
+<div id="faq5"
+class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+
+<div class="accordion-body">
+
+We work with Python, Flask, React,
+OpenAI APIs, Machine Learning,
+Computer Vision, Data Analytics,
+Cloud Technologies and modern web frameworks.
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FAQ 6 -->
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button collapsed"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#faq6">
+
+Can startups work with Prionix AI?
+
+</button>
+
+</h2>
+
+<div id="faq6"
+class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+
+<div class="accordion-body">
+
+Yes. We love working with startups and
+helping founders turn innovative ideas
+into scalable AI-powered products.
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FAQ 7 -->
+
+<div class="accordion-item">
+
+<h2 class="accordion-header">
+
+<button class="accordion-button collapsed"
+type="button"
+data-bs-toggle="collapse"
+data-bs-target="#faq7">
+
+Do you offer free consultations?
+
+</button>
+
+</h2>
+
+<div id="faq7"
+class="accordion-collapse collapse"
+data-bs-parent="#faqAccordion">
+
+<div class="accordion-body">
+
+Yes. We offer an initial consultation
+to understand your goals and recommend
+the best technology solution for your business.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- CTA -->
+
+<div class="faq-cta">
+
+<h2>
+Still Have Questions?
+</h2>
+
+<p>
+Our team is here to help you understand
+how AI can transform your business.
+
+</p>
+
+<a href="/consultation" class="faq-btn">
+Get Free Consultation →
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}
+```

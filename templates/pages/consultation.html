@@ -1,0 +1,435 @@
+
+{% extends "layout/base.html" %}
+
+{% block title %}
+Free Consultation | Prionix AI
+{% endblock %}
+
+{% block content %}
+
+<style>
+
+.consultation-section{
+
+    min-height:100vh;
+
+    padding:100px 0;
+
+    background:
+    radial-gradient(circle at top right,#dbeafe40,transparent 30%),
+    radial-gradient(circle at bottom left,#ede9fe40,transparent 30%),
+    linear-gradient(
+    135deg,
+    #ffffff,
+    #f8fafc,
+    #f1f5f9);
+}
+
+/* HERO */
+
+.consultation-badge{
+
+    display:inline-block;
+
+    background:#eef2ff;
+
+    color:#4f46e5;
+
+    padding:10px 20px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+}
+
+.consultation-title{
+
+    font-size:4rem;
+
+    font-weight:800;
+
+    line-height:1.1;
+
+    background:
+    linear-gradient(
+    90deg,
+    #0f172a,
+    #475569);
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+}
+
+.consultation-subtitle{
+
+    max-width:800px;
+
+    margin:auto;
+
+    color:#64748b;
+
+    font-size:1.15rem;
+
+    margin-top:20px;
+}
+
+/* CARD */
+
+.consultation-card{
+
+    background:white;
+
+    border-radius:35px;
+
+    padding:50px;
+
+    margin-top:60px;
+
+    box-shadow:
+    0 25px 60px rgba(0,0,0,.08);
+
+    border:1px solid #e2e8f0;
+}
+
+/* FORM */
+
+.form-label{
+
+    font-weight:600;
+
+    color:#334155;
+
+    margin-bottom:8px;
+}
+
+.form-control{
+
+    border:1px solid #e2e8f0;
+
+    border-radius:16px;
+
+    padding:15px 18px;
+
+    background:#f8fafc;
+
+    transition:.3s;
+}
+
+.form-control:focus{
+
+    border-color:#94a3b8;
+
+    background:white;
+
+    box-shadow:
+    0 0 0 4px rgba(148,163,184,.15);
+}
+
+/* BUTTON */
+
+.submit-btn{
+
+    width:100%;
+
+    border:none;
+
+    border-radius:18px;
+
+    padding:18px;
+
+    margin-top:10px;
+
+    color:white;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    background:
+    linear-gradient(
+    135deg,
+    #0f172a,
+    #334155);
+
+    transition:.3s;
+}
+
+.submit-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 15px 40px rgba(15,23,42,.2);
+}
+
+/* INFO CARDS */
+
+.info-box{
+
+    background:#f8fafc;
+
+    border-radius:20px;
+
+    padding:25px;
+
+    text-align:center;
+
+    height:100%;
+}
+
+.info-box h4{
+
+    font-weight:700;
+
+    color:#0f172a;
+}
+
+.info-box p{
+
+    color:#64748b;
+
+    margin-bottom:0;
+}
+
+.alert{
+
+    border:none;
+
+    border-radius:15px;
+}
+
+</style>
+
+<section class="consultation-section">
+
+<div class="container">
+
+<!-- HERO -->
+
+<div class="text-center">
+
+<span class="consultation-badge">
+🚀 Free Strategy Session
+</span>
+
+<h1 class="consultation-title">
+Let's Build Your Next
+AI Solution
+</h1>
+
+<p class="consultation-subtitle">
+
+Tell us about your project and we'll help you identify
+the best technology, AI strategy and development roadmap
+to achieve your business goals.
+
+</p>
+
+</div>
+
+<!-- INFO -->
+
+<div class="row mt-5 g-4">
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h4>🤖 AI Solutions</h4>
+
+<p>
+Chatbots, AI Assistants,
+RAG Systems & Automation
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h4>📊 Data Intelligence</h4>
+
+<p>
+Analytics, Dashboards,
+Visualization & Insights
+</p>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="info-box">
+
+<h4>🌐 Web Development</h4>
+
+<p>
+Business Websites,
+SaaS Platforms & Portals
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- FORM -->
+
+<div class="consultation-card">
+
+<h2 class="text-center fw-bold mb-4">
+Project Consultation Form
+</h2>
+
+<form method="POST">
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Full Name
+</label>
+
+<input
+type="text"
+name="full_name"
+class="form-control"
+placeholder="Enter your full name"
+required>
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Email Address
+</label>
+
+<input
+type="email"
+name="email"
+class="form-control"
+placeholder="Enter your email"
+required>
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Company Name
+</label>
+
+<input
+type="text"
+name="company_name"
+class="form-control"
+placeholder="Your company name">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Project Type
+</label>
+
+<input
+type="text"
+name="project_type"
+class="form-control"
+placeholder="AI, Web App, Dashboard, etc.">
+
+</div>
+
+</div>
+
+<div class="row">
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Estimated Budget
+</label>
+
+<input
+type="text"
+name="budget"
+class="form-control"
+placeholder="e.g. $500 - $5000">
+
+</div>
+
+<div class="col-md-6 mb-3">
+
+<label class="form-label">
+Expected Deadline
+</label>
+
+<input
+type="text"
+name="deadline"
+class="form-control"
+placeholder="e.g. 2 Weeks">
+
+</div>
+
+</div>
+
+<div class="mb-3">
+
+<label class="form-label">
+Project Description
+</label>
+
+<textarea
+name="description"
+rows="6"
+class="form-control"
+placeholder="Describe your project, goals, requirements and expectations..."
+required></textarea>
+
+</div>
+
+<button
+type="submit"
+class="submit-btn">
+
+Submit Consultation Request →
+
+</button>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category, message in messages %}
+
+<div class="alert alert-success mt-4">
+{{ message }}
+</div>
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}
+```

@@ -1,0 +1,271 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Prionix AI | AI Solutions & Data Intelligence
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero Section -->
+
+<section class="bg-dark text-white py-5">
+    <div class="container">
+
+
+    <div class="row align-items-center">
+
+        <div class="col-lg-6">
+
+            <span class="badge bg-info text-dark mb-3">
+                AI • Automation • Data Intelligence
+            </span>
+
+            <h1 class="display-4 fw-bold mb-4">
+                Building Intelligent Solutions
+                For Modern Businesses
+            </h1>
+
+            <p class="lead mb-4">
+                We help startups and businesses leverage Artificial Intelligence,
+                Automation, Data Analytics, and Custom Web Solutions to
+                improve productivity and drive growth.
+            </p>
+
+            <a href="/consultation"
+               class="btn btn-info btn-lg me-3">
+                Book Free Consultation
+            </a>
+
+            <a href="/portfolio"
+               class="btn btn-outline-light btn-lg">
+                View Portfolio
+            </a>
+
+        </div>
+
+        <div class="col-lg-6 text-center">
+
+           <img
+               src="{{ url_for('static', filename='images/hero-image.png') }}"
+               class="img-fluid   shadow-lg"
+               alt="Prionix AI">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- Stats -->
+
+<section class="py-5">
+    <div class="container">
+
+
+    <div class="row text-center">
+
+        <div class="col-md-3">
+            <h2 class="fw-bold text-primary">10+</h2>
+            <p>AI Projects</p>
+        </div>
+
+        <div class="col-md-3">
+            <h2 class="fw-bold text-primary">5+</h2>
+            <p>Core Technologies</p>
+        </div>
+
+        <div class="col-md-3">
+            <h2 class="fw-bold text-primary">24/7</h2>
+            <p>Support</p>
+        </div>
+
+        <div class="col-md-3">
+            <h2 class="fw-bold text-primary">100%</h2>
+            <p>Custom Solutions</p>
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- Services -->
+
+<section class="bg-light py-5">
+
+
+<div class="container">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold">
+            What We Do
+        </h2>
+
+        <p class="text-muted">
+            Delivering practical AI solutions for real-world business challenges.
+        </p>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+
+                <div class="card-body">
+
+                    <h4>🤖 AI Development</h4>
+
+                    <p>
+                        AI Assistants, Chatbots, RAG Systems,
+                        Workflow Automation and Custom AI Tools.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+
+                <div class="card-body">
+
+                    <h4>📊 Data Intelligence</h4>
+
+                    <p>
+                        Data Cleaning, Analysis,
+                        Visualization and Business Insights.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="col-md-4 mb-4">
+            <div class="card h-100 shadow-sm">
+
+                <div class="card-body">
+
+                    <h4>🌐 Web Solutions</h4>
+
+                    <p>
+                        Business Websites,
+                        Dashboards and Startup Platforms.
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+</section>
+
+<!-- Featured Projects -->
+
+<section class="py-5">
+
+
+<div class="container">
+
+    <div class="text-center mb-5">
+
+        <h2 class="fw-bold">
+            Featured Projects
+        </h2>
+
+    </div>
+
+    <div class="row">
+
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5>PDF Summarizer</h5>
+                    <p>AI-powered document summarization platform.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5>AI Resume Screener</h5>
+                    <p>Automated candidate shortlisting system.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5>RAG Chatbot</h5>
+                    <p>Knowledge-based conversational AI assistant.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 mb-4">
+            <div class="card h-100">
+                <div class="card-body">
+                    <h5>AI Assistant</h5>
+                    <p>Self-learning business automation assistant.</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+<div class="col-lg-12 text-center">
+
+           <img
+               src="{{ url_for('static', filename='images/roadmap.png') }}"
+               class="img-fluid   shadow-lg"
+               alt="Road map">
+
+        </div>
+
+
+
+</section>
+
+<!-- CTA -->
+
+<section class="bg-primary text-white py-5">
+
+
+<div class="container text-center">
+
+    <h2 class="fw-bold mb-3">
+        Ready To Transform Your Business?
+    </h2>
+
+    <p class="lead mb-4">
+        Let's build intelligent systems that save time,
+        reduce costs and improve efficiency.
+    </p>
+
+    <a href="/consultation"
+       class="btn btn-light btn-lg">
+        Schedule Free Consultation
+    </a>
+
+</div>
+
+
+</section>
+
+{% endblock %}

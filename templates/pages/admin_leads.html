@@ -1,0 +1,77 @@
+{% extends "layout/base.html" %}
+
+{% block title %}
+Admin Leads
+{% endblock %}
+
+{% block content %}
+
+<div class="container py-5">
+
+    <h1 class="mb-4">
+        Client Consultation Requests
+    </h1>
+
+    <table class="table table-bordered">
+
+        <thead>
+
+            <tr>
+
+                <th>Name</th>
+
+                <th>Email</th>
+
+                <th>Company</th>
+
+                <th>Project Type</th>
+
+                <th>Budget</th>
+
+            </tr>
+
+        </thead>
+
+        <tbody>
+
+            {% for lead in leads %}
+
+            <tr>
+
+                <td>{{ lead.full_name }}</td>
+
+                <td>{{ lead.email }}</td>
+
+                <td>{{ lead.company_name }}</td>
+
+                <td>{{ lead.project_type }}</td>
+
+                <td>{{ lead.budget }}</td>
+
+            </tr>
+
+            {% endfor %}
+
+        </tbody>
+
+    </table>
+    <div class="container py-5">
+
+    <div class="d-flex justify-content-between mb-4">
+
+        <h1>Client Consultation Requests</h1>
+
+        <a href="/admin/logout"
+           class="btn btn-danger">
+
+            Logout
+
+        </a>
+
+    </div>
+
+    <table class="table table-bordered">
+
+</div>
+
+{% endblock %}
