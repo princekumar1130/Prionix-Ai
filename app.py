@@ -247,7 +247,7 @@ Your Flask email system is working.
 - Prionix AI
 """
 
-    mail.send(msg)
+    #mail.send(msg)
 
     return "Email Sent Successfully!"
 @app.route("/admin/logout")
@@ -269,6 +269,4 @@ def sitemap():
 if __name__ == "__main__":
     app.run(debug=True)
 
-if __name__ == "__main__":
-    app.run(debug=True)
    
