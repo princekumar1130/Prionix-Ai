@@ -77,7 +77,7 @@ Description:
 {lead.description}
 """
 
-        #mail.send(msg)
+        mail.send(msg)
 
         client_msg = Message(
             subject="Thank You For Contacting Prionix AI",
@@ -105,7 +105,7 @@ Regards,
 Prionix AI Team
 """
 
-        #mail.send(client_msg)
+        mail.send(client_msg)
         flash(
     "✅ Thank you for contacting Prionix AI. We have received your request and will contact you shortly.",
     "success"
@@ -171,7 +171,7 @@ Message:
 {contact.message}
 """
 
-        #mail.send(msg)
+        mail.send(msg)
 
         flash(
             "✅ Thank you for contacting Prionix AI. We will get back to you shortly.",
@@ -247,7 +247,7 @@ Your Flask email system is working.
 - Prionix AI
 """
 
-    #mail.send(msg)
+    mail.send(msg)
 
     return "Email Sent Successfully!"
 @app.route("/admin/logout")
