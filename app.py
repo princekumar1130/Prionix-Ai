@@ -171,7 +171,7 @@ Message:
 {contact.message}
 """
 
-        mail.send(msg)
+        #mail.send(msg)
 
         flash(
             "✅ Thank you for contacting Prionix AI. We will get back to you shortly.",
