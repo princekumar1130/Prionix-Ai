@@ -105,7 +105,11 @@ Regards,
 Prionix AI Team
 """
 
-        mail.send(client_msg)
+        try:
+    mail.send(msg)
+    mail.send(client_msg)
+except Exception as e:
+    print(f"Email Error: {e}")
         flash(
     "✅ Thank you for contacting Prionix AI. We have received your request and will contact you shortly.",
     "success"
@@ -171,7 +175,10 @@ Message:
 {contact.message}
 """
 
-        mail.send(msg)
+        try:
+    mail.send(msg)
+except Exception as e:
+    print(f"Email Error: {e}")
 
         flash(
             "✅ Thank you for contacting Prionix AI. We will get back to you shortly.",
