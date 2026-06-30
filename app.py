@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash, session, send_from_directory
+from flask import Flask, render_template, request, redirect, flash, session, send_from_directory, smtplib
 from flask_mail import Mail, Message
 from config import Config
 
@@ -215,25 +215,20 @@ def admin_leads():
 @app.route("/test-email")
 def test_email():
     try:
-        print("MAIL_SERVER:", app.config["MAIL_SERVER"])
-        print("MAIL_PORT:", app.config["MAIL_PORT"])
-        print("MAIL_USERNAME:", app.config["MAIL_USERNAME"])
-        print("MAIL_USE_TLS:", app.config["MAIL_USE_TLS"])
-
-        msg = Message(
-            subject="Brevo Test",
-            recipients=["prionixai@gmail.com"]
+        server = smtplib.SMTP(
+            "smtp-relay.brevo.com",
+            587,
+            timeout=10
         )
-        msg.body = "Testing Brevo SMTP"
 
-        mail.send(msg)
+        server.ehlo()
+        server.starttls()
+        server.ehlo()
 
-        return "SUCCESS"
+        return "SMTP Connected Successfully"
 
     except Exception as e:
-        import traceback
-        traceback.print_exc()
-        return f"ERROR: {e}"
+        return str(e)
 @app.route("/admin/logout")
 def admin_logout():
 
