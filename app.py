@@ -1,11 +1,16 @@
-from flask import Flask, render_template, request, redirect, flash, session, send_from_directory, smtplib
-from flask_mail import Mail, Message
+from flask import Flask, render_template, request, redirect, flash, session
+import requests
 from config import Config
 
 app = Flask(__name__)
 app.config.from_object(Config)
-mail = Mail(app)
 from database.models import db, Consultation, ContactMessage
+
+
+def send_email(to_email, subject, text):
+    payload={"sender":{"email":app.config["BREVO_SENDER_EMAIL"],"name":"Prionix AI"},"to":[{"email":to_email}],"subject":subject,"textContent":text}
+    requests.post("https://api.brevo.com/v3/smtp/email",headers={"accept":"application/json","api-key":app.config["BREVO_API_KEY"],"content-type":"application/json"},json=payload,timeout=20)
+
 
 db.init_app(app)
 
@@ -38,6 +43,7 @@ def consultation():
     if request.method == "POST":
 
         lead = Consultation(
+
             full_name=request.form["full_name"],
             email=request.form["email"],
             company_name=request.form["company_name"],
@@ -45,64 +51,60 @@ def consultation():
             budget=request.form["budget"],
             deadline=request.form["deadline"],
             description=request.form["description"]
+
         )
 
         db.session.add(lead)
+
         db.session.commit()
 
-        try:
-            msg = Message(
-                subject="🚀 New Consultation Request - Prionix AI",
-                recipients=["prionixai@gmail.com"]
-            )
-
-            msg.body = f"""
-A new consultation request has been received.
+        send_email("prionixai@gmail.com","🚀 New Consultation Request - Prionix AI",f"""A new consultation request has been received.
 
 Name: {lead.full_name}
+
 Email: {lead.email}
+
 Company: {lead.company_name}
+
 Project Type: {lead.project_type}
+
 Budget: {lead.budget}
+
 Deadline: {lead.deadline}
 
 Description:
-{lead.description}
-"""
+{lead.description}""")
 
-            mail.send(msg)
-
-            client_msg = Message(
-                subject="Thank You For Contacting Prionix AI",
-                recipients=[lead.email]
-            )
-
-            client_msg.body = f"""
-Hello {lead.full_name},
+        send_email(lead.email,"Thank You For Contacting Prionix AI",f"""Hello {lead.full_name},
 
 Thank you for contacting Prionix AI.
 
 We have successfully received your consultation request.
 
-Our team will contact you shortly.
+Our team will review your requirements and contact you shortly.
 
-Regards,
-Prionix AI Team
-"""
+Project Type: {lead.project_type}
+Budget: {lead.budget}
 
-            mail.send(client_msg)
+Thank you for choosing Prionix AI.
 
-        except Exception as e:
-            print("Email Error:", e)
-
+Regards,\nPrionix AI Team""")
         flash(
-            "✅ Thank you for contacting Prionix AI. We have received your request and will contact you shortly.",
-            "success"
-        )
+    "✅ Thank you for contacting Prionix AI. We have received your request and will contact you shortly.",
+    "success"
+)
 
         return redirect("/consultation")
 
-    return render_template("pages/consultation.html")
+    return render_template(
+        "pages/consultation.html"
+    )
+
+        
+
+    return render_template(
+        "pages/consultation.html"
+    )
 
 @app.route("/testimonials")
 def testimonials():
@@ -122,37 +124,28 @@ def contact():
     if request.method == "POST":
 
         contact = ContactMessage(
+
             name=request.form["name"],
             email=request.form["email"],
             phone=request.form["phone"],
             message=request.form["message"]
+
         )
 
         db.session.add(contact)
+
         db.session.commit()
 
-        try:
-
-            msg = Message(
-                subject="📩 New Contact Message - Prionix AI",
-                recipients=["prionixai@gmail.com"]
-            )
-
-            msg.body = f"""
-A new contact message has been received.
+        send_email("prionixai@gmail.com","📩 New Contact Message - Prionix AI",f"""A new contact message has been received.
 
 Name: {contact.name}
+
 Email: {contact.email}
+
 Phone: {contact.phone}
 
 Message:
-{contact.message}
-"""
-
-            mail.send(msg)
-
-        except Exception as e:
-            print("Email Error:", e)
+{contact.message}""")
 
         flash(
             "✅ Thank you for contacting Prionix AI. We will get back to you shortly.",
@@ -214,21 +207,23 @@ def admin_leads():
     )
 @app.route("/test-email")
 def test_email():
-    try:
-        server = smtplib.SMTP(
-            "smtp-relay.brevo.com",
-            587,
-            timeout=10
-        )
 
-        server.ehlo()
-        server.starttls()
-        server.ehlo()
+    msg = Message(
+        subject="Prionix AI Test Email",
+        recipients=["prionixai@gmail.com"]
+    )
 
-        return "SMTP Connected Successfully"
+    msg.body = """
+Congratulations!
 
-    except Exception as e:
-        return str(e)
+Your Flask email system is working.
+
+- Prionix AI
+"""
+
+    mail.send(msg)
+
+    return "Email Sent Successfully!"
 @app.route("/admin/logout")
 def admin_logout():
 
@@ -237,6 +232,11 @@ def admin_logout():
     flash("Logged out successfully.", "success")
 
     return redirect("/admin/login")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+from flask import send_from_directory
+
 @app.route("/robots.txt")
 def robots():
     return send_from_directory("static", "robots.txt")
@@ -244,8 +244,3 @@ def robots():
 @app.route("/sitemap.xml")
 def sitemap():
     return send_from_directory("static", "sitemap.xml")
-
-if __name__ == "__main__":
-    app.run(debug=True)
-
-   
