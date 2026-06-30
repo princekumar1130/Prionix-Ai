@@ -2,10 +2,9 @@ import os
 
 class Config:
 
-    SECRET_KEY = os.environ.get("SECRET_KEY") or "prionix-secret-key"
+    SECRET_KEY = os.environ.get("SECRET_KEY")
 
     SQLALCHEMY_DATABASE_URI = "sqlite:///db.sqlite3"
-
     SQLALCHEMY_TRACK_MODIFICATIONS = False
 
     MAIL_SERVER = os.environ.get("MAIL_SERVER")
