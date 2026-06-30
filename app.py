@@ -28,17 +28,23 @@ def send_email(to_email, subject, text):
         "content-type": "application/json"
     }
 
-    response = requests.post(
-        "https://api.brevo.com/v3/smtp/email",
-        headers=headers,
-        json=payload,
-        timeout=20
-    )
+    try:
+        response = requests.post(
+            "https://api.brevo.com/v3/smtp/email",
+            headers=headers,
+            json=payload,
+            timeout=20
+        )
 
-    print("STATUS:", response.status_code)
-    print("BODY:", response.text)
+        print("=" * 50)
+        print("STATUS:", response.status_code)
+        print("BODY:", response.text)
+        print("=" * 50)
 
-    response.raise_for_status()
+        response.raise_for_status()
+
+    except Exception as e:
+        print("BREVO ERROR:", str(e))  
 db.init_app(app)
 
 with app.app_context():
