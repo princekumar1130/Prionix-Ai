@@ -214,23 +214,26 @@ def admin_leads():
     )
 @app.route("/test-email")
 def test_email():
+    try:
+        print("MAIL_SERVER:", app.config["MAIL_SERVER"])
+        print("MAIL_PORT:", app.config["MAIL_PORT"])
+        print("MAIL_USERNAME:", app.config["MAIL_USERNAME"])
+        print("MAIL_USE_TLS:", app.config["MAIL_USE_TLS"])
 
-    msg = Message(
-        subject="Prionix AI Test Email",
-        recipients=["prionixai@gmail.com"]
-    )
+        msg = Message(
+            subject="Brevo Test",
+            recipients=["prionixai@gmail.com"]
+        )
+        msg.body = "Testing Brevo SMTP"
 
-    msg.body = """
-Congratulations!
+        mail.send(msg)
 
-Your Flask email system is working.
+        return "SUCCESS"
 
-- Prionix AI
-"""
-
-    mail.send(msg)
-
-    return "Email Sent Successfully!"
+    except Exception as e:
+        import traceback
+        traceback.print_exc()
+        return f"ERROR: {e}"
 @app.route("/admin/logout")
 def admin_logout():
 
