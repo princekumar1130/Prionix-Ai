@@ -38,7 +38,6 @@ def consultation():
     if request.method == "POST":
 
         lead = Consultation(
-
             full_name=request.form["full_name"],
             email=request.form["email"],
             company_name=request.form["company_name"],
@@ -46,86 +45,64 @@ def consultation():
             budget=request.form["budget"],
             deadline=request.form["deadline"],
             description=request.form["description"]
-
         )
 
         db.session.add(lead)
-
         db.session.commit()
 
-        msg = Message(
-            subject="🚀 New Consultation Request - Prionix AI",
-            recipients=["prionixai@gmail.com"]
-        )
+        try:
+            msg = Message(
+                subject="🚀 New Consultation Request - Prionix AI",
+                recipients=["prionixai@gmail.com"]
+            )
 
-        msg.body = f"""
+            msg.body = f"""
 A new consultation request has been received.
 
 Name: {lead.full_name}
-
 Email: {lead.email}
-
 Company: {lead.company_name}
-
 Project Type: {lead.project_type}
-
 Budget: {lead.budget}
-
 Deadline: {lead.deadline}
 
 Description:
 {lead.description}
 """
 
-        mail.send(msg)
+            mail.send(msg)
 
-        client_msg = Message(
-            subject="Thank You For Contacting Prionix AI",
-            recipients=[lead.email]
-        )
+            client_msg = Message(
+                subject="Thank You For Contacting Prionix AI",
+                recipients=[lead.email]
+            )
 
-        client_msg.body = f"""
+            client_msg.body = f"""
 Hello {lead.full_name},
 
 Thank you for contacting Prionix AI.
 
 We have successfully received your consultation request.
 
-Our team will review your requirements and contact you shortly.
-
-Project Type:
-{lead.project_type}
-
-Budget:
-{lead.budget}
-
-Thank you for choosing Prionix AI.
+Our team will contact you shortly.
 
 Regards,
 Prionix AI Team
 """
 
-        try:
-    mail.send(msg)
-    mail.send(client_msg)
-except Exception as e:
-    print(f"Email Error: {e}")
+            mail.send(client_msg)
+
+        except Exception as e:
+            print("Email Error:", e)
+
         flash(
-    "✅ Thank you for contacting Prionix AI. We have received your request and will contact you shortly.",
-    "success"
-)
+            "✅ Thank you for contacting Prionix AI. We have received your request and will contact you shortly.",
+            "success"
+        )
 
         return redirect("/consultation")
 
-    return render_template(
-        "pages/consultation.html"
-    )
-
-        
-
-    return render_template(
-        "pages/consultation.html"
-    )
+    return render_template("pages/consultation.html")
 
 @app.route("/testimonials")
 def testimonials():
@@ -145,40 +122,37 @@ def contact():
     if request.method == "POST":
 
         contact = ContactMessage(
-
             name=request.form["name"],
             email=request.form["email"],
             phone=request.form["phone"],
             message=request.form["message"]
-
         )
 
         db.session.add(contact)
-
         db.session.commit()
 
-        msg = Message(
-            subject="📩 New Contact Message - Prionix AI",
-            recipients=["prionixai@gmail.com"]
-        )
+        try:
 
-        msg.body = f"""
+            msg = Message(
+                subject="📩 New Contact Message - Prionix AI",
+                recipients=["prionixai@gmail.com"]
+            )
+
+            msg.body = f"""
 A new contact message has been received.
 
 Name: {contact.name}
-
 Email: {contact.email}
-
 Phone: {contact.phone}
 
 Message:
 {contact.message}
 """
 
-        try:
-    mail.send(msg)
-except Exception as e:
-    print(f"Email Error: {e}")
+            mail.send(msg)
+
+        except Exception as e:
+            print("Email Error:", e)
 
         flash(
             "✅ Thank you for contacting Prionix AI. We will get back to you shortly.",
