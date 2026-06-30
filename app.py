@@ -8,10 +8,37 @@ from database.models import db, Consultation, ContactMessage
 
 
 def send_email(to_email, subject, text):
-    payload={"sender":{"email":app.config["BREVO_SENDER_EMAIL"],"name":"Prionix AI"},"to":[{"email":to_email}],"subject":subject,"textContent":text}
-    requests.post("https://api.brevo.com/v3/smtp/email",headers={"accept":"application/json","api-key":app.config["BREVO_API_KEY"],"content-type":"application/json"},json=payload,timeout=20)
+    payload = {
+        "sender": {
+            "email": app.config["BREVO_SENDER_EMAIL"],
+            "name": "Prionix AI"
+        },
+        "to": [
+            {
+                "email": to_email
+            }
+        ],
+        "subject": subject,
+        "textContent": text
+    }
 
+    headers = {
+        "accept": "application/json",
+        "api-key": app.config["BREVO_API_KEY"],
+        "content-type": "application/json"
+    }
 
+    response = requests.post(
+        "https://api.brevo.com/v3/smtp/email",
+        headers=headers,
+        json=payload,
+        timeout=20
+    )
+
+    print("STATUS:", response.status_code)
+    print("BODY:", response.text)
+
+    response.raise_for_status()
 db.init_app(app)
 
 with app.app_context():
@@ -205,23 +232,7 @@ def admin_leads():
         "pages/admin_leads.html",
         leads=leads
     )
-@app.route("/test-email")
-def test_email():
 
-    msg = Message(
-        subject="Prionix AI Test Email",
-        recipients=["prionixai@gmail.com"]
-    )
-
-    msg.body = """
-Congratulations!
-
-Your Flask email system is working.
-
-- Prionix AI
-"""
-
-    mail.send(msg)
 
     return "Email Sent Successfully!"
 @app.route("/admin/logout")
