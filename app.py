@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, flash, session
+from flask import Flask, render_template, request, redirect, flash, session, send_from_directory
 from flask_mail import Mail, Message
 from config import Config
 
@@ -258,11 +258,6 @@ def admin_logout():
     flash("Logged out successfully.", "success")
 
     return redirect("/admin/login")
-
-if __name__ == "__main__":
-    app.run(debug=True)
-    from flask import send_from_directory
-
 @app.route("/robots.txt")
 def robots():
     return send_from_directory("static", "robots.txt")
@@ -270,3 +265,10 @@ def robots():
 @app.route("/sitemap.xml")
 def sitemap():
     return send_from_directory("static", "sitemap.xml")
+
+if __name__ == "__main__":
+    app.run(debug=True)
+
+if __name__ == "__main__":
+    app.run(debug=True)
+   
